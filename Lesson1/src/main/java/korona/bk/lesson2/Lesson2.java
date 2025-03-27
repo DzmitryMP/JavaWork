@@ -1,4 +1,4 @@
-package lesson2;
+package korona.bk.lesson2;
 
 public class Lesson2 {
     public static void main(String[] args) {
