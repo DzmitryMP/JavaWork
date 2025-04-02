@@ -10,5 +10,9 @@ public class StartListNode {
         ListNode head1 = new ListNode(1, node2);
 
         ListNode.print(head1);
+
+        ListNode head6 = ListNode.reverseListNode(head1);
+
+        ListNode.print(head6);
     }
 }
