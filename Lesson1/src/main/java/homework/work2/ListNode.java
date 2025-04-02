@@ -13,7 +13,7 @@ public class ListNode {
         this.next = next;
     }
 
-    public void Print(ListNode head) {
+    public static void print(ListNode head) {
         ListNode current = head;
         while (current != null) {
             System.out.print(current.val);

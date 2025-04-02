@@ -9,6 +9,6 @@ public class StartListNode {
         ListNode node2 = new ListNode(2, node3);
         ListNode head1 = new ListNode(1, node2);
 
-        head1.Print(head1);
+        ListNode.print(head1);
     }
 }
