@@ -59,8 +59,9 @@ public class CustomList {
 
         for (int i = 0; i < size; i++) {
             System.out.print(arrObj[i]);
-            if (i < size - 1) System.out.print(", ");
-            ;
+            if (i < size - 1) {
+                System.out.print(", ");
+            }
         }
         System.out.println();
     }
