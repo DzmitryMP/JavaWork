@@ -21,7 +21,6 @@ public class StartListNode {
         head7.print();
 
 
-
         CustomList<String> myList = new CustomList<>();
         myList.add("Привет");
         myList.add("Мир");
