@@ -14,5 +14,27 @@ public class StartListNode {
         ListNode head6 = ListNode.reverseListNode(head1);
 
         ListNode.print(head6);
+
+        CustomList<ListNode> head7 = new CustomList<>();
+        head7.add(head6);
+        head7.add(head1);
+        head7.print();
+
+
+
+        CustomList<String> myList = new CustomList<>();
+        myList.add("Привет");
+        myList.add("Мир");
+        myList.addArr("Java", "Python", "C++");
+        myList.print();
+
+
+        myList.del(1);
+        myList.print();
+
+        myList.del("Python");
+        myList.print();
+
+
     }
 }
