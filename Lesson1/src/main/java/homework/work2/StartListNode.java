@@ -15,20 +15,22 @@ public class StartListNode {
 
         ListNode.print(head6);
 
-        CustomList<ListNode> head7 = new CustomList<>();
+        CustomList head7 = new CustomList();
         head7.add(head6);
         head7.add(head1);
         head7.print();
 
-
-        CustomList<String> myList = new CustomList<>();
+        String[] arrStr = new String[]{"Java", "Python", "C++"};
+        CustomList myList = new CustomList();
         myList.add("Привет");
         myList.add("Мир");
-        myList.addArr("Java", "Python", "C++");
+        myList.addArr(arrStr);
         myList.print();
 
 
-        myList.del(1);
+       if (myList.del(1)) {
+            System.out.println("Удалили элемент");
+        };
         myList.print();
 
         myList.del("Python");
