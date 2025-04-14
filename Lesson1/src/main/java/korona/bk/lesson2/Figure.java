@@ -1,6 +1,16 @@
 package korona.bk.lesson2;
 
-public class Figure {
+public abstract class Figure {
 
-    public double square;
+    public final double square;
+
+    protected Figure(double square) {
+        this.square = square;
+    }
+
+
+    public abstract void print();
+
+    public abstract FigureType getType();
+
 }
