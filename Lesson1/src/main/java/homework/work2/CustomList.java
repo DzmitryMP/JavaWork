@@ -17,16 +17,31 @@ public class CustomList {
         this.size = 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void add(Object obj) {
-        if (size == arrObj.length) {
-            arrObj = Arrays.copyOf(arrObj, arrObj.length + 1);
+
+        if (obj != null) {
+            if (size == arrObj.length) {
+                arrObj = Arrays.copyOf(arrObj, arrObj.length + 1);
+            }
+            arrObj[size++] = obj;
         }
-        arrObj[size++] = obj;
     }
 
     public void addArr(Object[] objArr) {
         for (Object obj : objArr) {
             add(obj);
+        }
+    }
+
+    public void addArr(CustomList objArr) {
+        if (objArr != null) {
+            for (int i = 0; i < objArr.size - 1; i++) {
+                add(objArr.getObj(i));
+            }
         }
     }
 
@@ -46,9 +61,12 @@ public class CustomList {
     }
 
     public boolean del(Object obj) {
-        for (int i = 0; i < size; i++) {
-            if (obj.equals(arrObj[i])) {  // Сравниваем элементы
-              return del(i);
+
+        if (obj != null) {
+            for (int i = 0; i < size; i++) {
+                if (obj.equals(arrObj[i])) {  // Сравниваем элементы
+                    return del(i);
+                }
             }
         }
         return false;
@@ -65,5 +83,20 @@ public class CustomList {
         }
         System.out.println();
     }
+
+    public Object getObj(int i) {
+        return arrObj[i];
+
+    }
+
+    public boolean find(Object obj) {
+        for (int i = 0; i < size; i++) {
+            if (obj.equals(arrObj[i])) {  // Сравниваем элементы
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
