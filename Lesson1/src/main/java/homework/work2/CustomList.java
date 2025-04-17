@@ -32,8 +32,10 @@ public class CustomList {
     }
 
     public void addArr(Object[] objArr) {
-        for (Object obj : objArr) {
-            add(obj);
+        if (objArr != null) {
+            for (Object obj : objArr) {
+                add(obj);
+            }
         }
     }
 
@@ -90,9 +92,11 @@ public class CustomList {
     }
 
     public boolean find(Object obj) {
-        for (int i = 0; i < size; i++) {
-            if (obj.equals(arrObj[i])) {  // Сравниваем элементы
-                return true;
+        if (obj != null) {
+            for (int i = 0; i < size; i++) {
+                if (obj.equals(arrObj[i])) {  // Сравниваем элементы
+                    return true;
+                }
             }
         }
         return false;
