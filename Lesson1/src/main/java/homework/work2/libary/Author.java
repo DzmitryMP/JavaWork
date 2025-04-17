@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Author {
     private final String firstName;
     private final String lastName;
-    private final Date   birthDate;
+    private final Date birthDate;
 
     public Author(String firstName, String lastName, Date birthDate) {
         this.firstName = firstName;
