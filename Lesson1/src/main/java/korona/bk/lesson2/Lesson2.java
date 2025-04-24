@@ -4,11 +4,11 @@ public class Lesson2 {
     public static void main(String[] args) {
 
         Circle circle = new Circle(25.4);
-        Figure figure = new Circle(25.4);
+        FigureInterface figure = new Circle(25.4);
         circle.roll();
         circle.print();
         figure.print();
-        Figure figure3 = new Rectangle(56);
+        FigureInterface figure3 = new Rectangle(56);
 
         if (figure instanceof Circle) {
             Circle figure1 = (Circle) figure;
@@ -27,6 +27,17 @@ public class Lesson2 {
         System.out.println(CustomMonths.ЯНВАРЬ.getNumber());
         System.out.println(CustomMonths.ЯНВАРЬ.name());
 
+        Roller roller = new Roller();
+        Printer printer = new Printer();
+        roller.roll(circle);
+        printer.print(circle);
+
     }
 }
 //1 мосив целых чисел заданное число, написать метод который ренет масив первый индекс найнедгого
+//1создать клас принтер  - с единстрвенным методом принт
+//внутри будет
+// создать клас кототель рллер метод рол интерфейс ролаббл
+//
+
+

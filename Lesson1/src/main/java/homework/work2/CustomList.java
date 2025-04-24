@@ -64,11 +64,12 @@ public class CustomList {
 
     public boolean del(Object obj) {
 
-        if (obj != null) {
             for (int i = 0; i < size; i++) {
+               boolean b = "тест".equals(obj);
+               boolean b1 = obj.equals("тест");
+
                 if (obj.equals(arrObj[i])) {  // Сравниваем элементы
                     return del(i);
-                }
             }
         }
         return false;

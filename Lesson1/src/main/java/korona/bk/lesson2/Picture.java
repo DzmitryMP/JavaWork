@@ -2,9 +2,9 @@ package korona.bk.lesson2;
 
 public class Picture {
     private String image;
-    private Figure form;
+    private FigureInterface form;
 
-    public Picture(String image, Figure form) {
+    public Picture(String image, FigureInterface form) {
         this.image = image;
         this.form = form;
     }
