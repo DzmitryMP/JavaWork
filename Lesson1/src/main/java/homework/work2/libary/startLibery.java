@@ -1,7 +1,6 @@
 package homework.work2.libary;
 
-
-import homework.work2.CustomList;
+import java.util.ArrayList;
 
 import java.util.Date;
 
@@ -30,9 +29,9 @@ public class startLibery {
 
         }
         System.out.println("Все книги Толстого:");
-        CustomList tolstoyBooks = library.findBooksByAuthor(tolstoy);
-        for (int i = 0; i < tolstoyBooks.getSize(); i++) {
-            System.out.println(tolstoyBooks.getObj(i));
+        ArrayList tolstoyBooks = library.findBooksByAuthor(tolstoy);
+        for (int i = 0; i < tolstoyBooks.size(); i++) {
+            System.out.println(tolstoyBooks.get(i));
         }
     }
 

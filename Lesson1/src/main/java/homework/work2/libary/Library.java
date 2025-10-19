@@ -1,18 +1,15 @@
 package homework.work2.libary;
 
-import homework.work2.CustomList;
+import java.util.ArrayList;
 
 public class Library {
 
 
-    private final CustomList libraryBooks = new CustomList();
+    private final ArrayList<Book> libraryBooks = new ArrayList<>();
 
-    public boolean addBook(Book book) {
-        if (!libraryBooks.find(book)) {
+    public void addBook(Book book) {
+        if (!libraryBooks.contains(book)) {
             libraryBooks.add(book);
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -21,8 +18,8 @@ public class Library {
 
         Book findBooks = new Book(title, author, null);
 
-        for (int i = 0; i < libraryBooks.getSize(); i++) {
-            Book book = (Book) libraryBooks.getObj(i);
+        for (int i = 0; i < libraryBooks.size(); i++) {
+            Book book = (Book) libraryBooks.get(i);
             if (book.equals(findBooks)) {
                 return book;
             }
@@ -31,12 +28,11 @@ public class Library {
     }
 
     // Находит все книги указанного автора
-    public CustomList findBooksByAuthor(Author author) {
-        CustomList books = new CustomList();
-        for (int i = 0; i < libraryBooks.getSize(); i++) {
-            Book book =  (Book)  libraryBooks.getObj(i);
-            if (book.getAuthor().equals(author)) {
-                books.add(book);
+    public ArrayList<Book> findBooksByAuthor(Author author) {
+        ArrayList<Book> books = new ArrayList<>();
+        for (Book libraryBook : libraryBooks) {
+            if (((Book) libraryBook).getAuthor().equals(author)) {
+                books.add((Book) libraryBook);
             }
         }
         return books;
