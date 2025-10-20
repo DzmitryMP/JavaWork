@@ -1,10 +1,9 @@
 package homework.work2.libary;
 
-import java.util.ArrayList;
-
 import java.util.Date;
+import java.util.Set;
 
-public class startLiberty {
+public class StartLiberty {
     public static void main(String[] args) {
         Author tolstoy = new Author("Лев", "Толстой", new Date(1828, 9, 9));
         Author dostoevsky = new Author("Фёдор", "Достоевский", new Date(1821, 11, 11));
@@ -28,11 +27,17 @@ public class startLiberty {
             System.out.println("Не найдено");
 
         }
+
         System.out.println("Все книги Толстого:");
-        ArrayList<Book> tolstoyBooks = library.findBooksByAuthor(tolstoy);
+        Set<Book> tolstoyBooks = library.findBooksByAuthor(tolstoy);
         for (Book tolstoyBook : tolstoyBooks) {
             System.out.println(tolstoyBook);
         }
+        System.out.println("Поиска автора по названию книги:");
+        Author author = library.findAuthorByBookName("Преступление и наказание");
+        System.out.println(author);
+
+
     }
 
 }
