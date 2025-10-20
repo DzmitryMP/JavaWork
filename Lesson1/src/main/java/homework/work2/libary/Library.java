@@ -1,41 +1,44 @@
 package homework.work2.libary;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Library {
 
-
-    private final ArrayList<Book> libraryBooks = new ArrayList<>();
+    private final Map<Author, Set<Book>> authorBooksMap = new HashMap<>();
 
     public void addBook(Book book) {
-        if (!libraryBooks.contains(book)) {
-            libraryBooks.add(book);
-        }
+        authorBooksMap.computeIfAbsent(book.getAuthor(), k -> new HashSet<>()).add(book);
     }
 
 
     public Book findBook(String title, Author author) {
+        Set<Book> authorsBooks = authorBooksMap.get(author);
 
-        Book findBooks = new Book(title, author, null);
-
-        for (int i = 0; i < libraryBooks.size(); i++) {
-            Book book = (Book) libraryBooks.get(i);
-            if (book.equals(findBooks)) {
-                return book;
+        if (authorsBooks != null) {
+            for (Book book : authorsBooks) {
+                if (book.getName().equals(title)) {
+                    return book;
+                }
             }
         }
         return null;
     }
 
+
     // Находит все книги указанного автора
-    public ArrayList<Book> findBooksByAuthor(Author author) {
-        ArrayList<Book> books = new ArrayList<>();
-        for (Book libraryBook : libraryBooks) {
-            if (((Book) libraryBook).getAuthor().equals(author)) {
-                books.add((Book) libraryBook);
+    public Set<Book> findBooksByAuthor(Author author) {
+        return authorBooksMap.getOrDefault(author, Collections.emptySet());
+    }
+
+    public Author findAuthorByBookName(String title) {
+        for (Map.Entry<Author, Set<Book>> entry : authorBooksMap.entrySet()) {
+            for (Book book : entry.getValue()) {
+                if (book.getName().equals(title)) {
+                    return entry.getKey();
+                }
             }
         }
-        return books;
+        return null;
     }
 
 
