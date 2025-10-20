@@ -5,4 +5,9 @@ public class NotificationEMAILSender implements NotificationSender{
     public void send() {
         System.out.println("EMAIL notification");
     }
+
+    @Override
+    public NotificationType getNotificationType() {
+        return NotificationType.EMAIL;
+    }
 }

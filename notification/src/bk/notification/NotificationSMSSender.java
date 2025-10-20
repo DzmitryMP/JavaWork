@@ -6,4 +6,9 @@ public class NotificationSMSSender implements NotificationSender{
     public void send() {
         System.out.println("SMS notification");
     }
+
+    @Override
+    public NotificationType getNotificationType() {
+        return NotificationType.SMS;
+    }
 }

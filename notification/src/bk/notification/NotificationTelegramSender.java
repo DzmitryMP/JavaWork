@@ -5,4 +5,9 @@ public class NotificationTelegramSender implements NotificationSender{
     public void send() {
         System.out.println("Telegram notification");
     }
+
+    @Override
+    public NotificationType getNotificationType() {
+        return NotificationType.TELEGRAM;
+    }
 }

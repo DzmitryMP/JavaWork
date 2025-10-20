@@ -5,15 +5,13 @@ import java.util.Map;
 
 public class NotificationResolver {
 
-    private final Map<NotificationType, NotificationSender> notificationSenderMap = new HashMap<>();
+    private final Map<NotificationType, NotificationSender> notificationSenderMap;
 
-    public NotificationResolver() {
-        notificationSenderMap.put(NotificationType.SMS, new NotificationSMSSender());
-        notificationSenderMap.put(NotificationType.TELEGRAM, new NotificationTelegramSender());
-        notificationSenderMap.put(NotificationType.EMAIL, new NotificationEMAILSender());
+    public NotificationResolver(NotificationSenderFactory notificationSenderFactory) {
+        notificationSenderMap = notificationSenderFactory.getNotificationSenderMap();
     }
 
     public NotificationSender resolve(NotificationType notificationType) {
-        return notificationSenderMap.get(notificationType);
+        return new LoggedNotificationSenderDecorator(notificationSenderMap.get(notificationType));
     }
 }
