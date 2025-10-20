@@ -1,4 +1,4 @@
 public interface FigureCreator {
 
-    Figure create();
+    Figure create(String figureP);
 }

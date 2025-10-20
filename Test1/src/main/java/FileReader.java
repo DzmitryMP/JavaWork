@@ -7,6 +7,7 @@ import java.util.List;
 
 public class FileReader {
     private final String path;
+    private final FigureResolver fileReader = new FigureResolver();
 
     public FileReader(String path) {
         this.path = path;
@@ -20,30 +21,8 @@ public class FileReader {
             while ((figureT = reader.readLine()) != null) {
                 FigureType figureType = FigureType.valueOf(figureT);
                 figureP = reader.readLine();
-
-                FigureCreator figureCreator = null;
-
-                if (figureType.equals(FigureType.CIRCLE)) {
-
-                    figureList.add(circle);
-                }
-
-                if (figureType.equals(FigureType.RECTANGLE)) {
-                    figureCreator = new RectangleCreator(figureP);
-
-                    figureList.add(rectangle);
-                }
-
-                if (figureType.equals(FigureType.TRIANGLE)) {
-                    figureCreator = new TriangleCreator(figureP);
-                    String[] recParametr = figureP.split(" ");
-                    Double ab = Double.valueOf(recParametr[0]);
-                    Double bc = Double.valueOf(recParametr[1]);
-                    Double cd = Double.valueOf(recParametr[2]);
-                    Triangle triangle = new Triangle(ab, bc, cd);
-                    figureList.add(triangle);
-                }
-                figureList.add(figureCreator.create());
+                FigureCreator figureCreator = fileReader.getFigureCreator(figureType);
+                figureList.add(figureCreator.create(figureP));
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -52,4 +31,6 @@ public class FileReader {
         }
         return figureList;
     }
+
+
 }
