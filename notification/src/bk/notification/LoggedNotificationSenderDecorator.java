@@ -10,9 +10,9 @@ public class LoggedNotificationSenderDecorator implements NotificationSender {
     }
 
     @Override
-    public void send() {
+    public void send(NotificationModel notificationModel) {
         System.out.println(notificationSender.getNotificationType() + " отправляется");
-        notificationSender.send();
+        notificationSender.send(notificationModel);
         System.out.println(notificationSender.getNotificationType() + "  отправлено");
     }
 

@@ -8,7 +8,10 @@ public class NotificationResolver {
     private final Map<NotificationType, NotificationSender> notificationSenderMap;
 
     public NotificationResolver(NotificationSenderFactory notificationSenderFactory) {
-        notificationSenderMap = notificationSenderFactory.getNotificationSenderMap();
+        notificationSenderMap = new HashMap<>();
+        for (NotificationSender notificationSender : notificationSenderFactory.getNotificationSenderList()) {
+            notificationSenderMap.put(notificationSender.getNotificationType(), notificationSender);
+        }
     }
 
     public NotificationSender resolve(NotificationType notificationType) {

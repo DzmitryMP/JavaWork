@@ -1,10 +1,11 @@
 package bk.notification;
 
-public class NotificationSMSSender implements NotificationSender{
+public class NotificationSMSSender implements NotificationSender<SMSNotificationModel> {
 
     @Override
-    public void send() {
-        System.out.println("SMS notification");
+    public void send(SMSNotificationModel smsNotificationModel) {
+        System.out.println("От " + smsNotificationModel.getPhoneNumberSender() + " для " + smsNotificationModel.getPhoneNumberReceiver()
+                + " сообщение " + smsNotificationModel.getMessage());
     }
 
     @Override

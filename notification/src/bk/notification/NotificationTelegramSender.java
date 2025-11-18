@@ -1,8 +1,8 @@
 package bk.notification;
 
-public class NotificationTelegramSender implements NotificationSender{
+public class NotificationTelegramSender implements NotificationSender<TelegramNotificationModel> {
     @Override
-    public void send() {
+    public void send(TelegramNotificationModel telegramNotificationModel) {
         System.out.println("Telegram notification");
     }
 

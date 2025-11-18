@@ -1,20 +1,20 @@
 package bk.notification;
 
-import java.util.Map;
+import java.util.List;
 
 public class SignNotificationSenderFactory implements NotificationSenderFactory{
-    private final Map<NotificationType, NotificationSender> notificationSenderMap;
+    private final List<NotificationSender> notificationSenderList;
 
     public SignNotificationSenderFactory() {
 
-        notificationSenderMap = Map.of(
-                NotificationType.SMS, new NotificationSMSSender(),
-                NotificationType.EMAIL, new NotificationEMAILSender());
+        notificationSenderList = List.of(
+                new NotificationSMSSender(),
+                new NotificationEMAILSender());
     }
 
 
     @Override
-    public Map<NotificationType, NotificationSender> getNotificationSenderMap() {
-        return notificationSenderMap;
+    public List<NotificationSender> getNotificationSenderList() {
+        return notificationSenderList;
     }
 }

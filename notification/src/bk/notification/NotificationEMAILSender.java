@@ -1,9 +1,10 @@
 package bk.notification;
 
-public class NotificationEMAILSender implements NotificationSender{
+public class NotificationEMAILSender implements NotificationSender<EmailNotificationModel> {
     @Override
-    public void send() {
-        System.out.println("EMAIL notification");
+    public void send(EmailNotificationModel emailNotificationModel) {
+        System.out.println("От " + emailNotificationModel.getEmailSender() + " для " + emailNotificationModel.getEmailReceiver()
+                + " тема " + emailNotificationModel.getSubject() + " текст " + emailNotificationModel.getMessage());
     }
 
     @Override
