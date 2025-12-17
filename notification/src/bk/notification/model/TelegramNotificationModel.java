@@ -1,4 +1,4 @@
-package bk.notification;
+package bk.notification.model;
 
 import java.io.InputStream;
 

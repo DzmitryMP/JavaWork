@@ -1,5 +1,9 @@
 package bk.notification;
 
+import bk.notification.factory.NotificationSenderFactory;
+import bk.notification.sender.LoggedNotificationSenderDecorator;
+import bk.notification.sender.NotificationSender;
+
 import java.util.HashMap;
 import java.util.Map;
 

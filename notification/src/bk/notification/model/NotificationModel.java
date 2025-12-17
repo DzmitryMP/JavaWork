@@ -1,5 +1,7 @@
-package bk.notification;
+package bk.notification.model;
 
 public interface NotificationModel {
     String getMessage();
+
+
 }

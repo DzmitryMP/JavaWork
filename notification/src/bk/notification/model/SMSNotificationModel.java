@@ -1,9 +1,12 @@
-package bk.notification;
+package bk.notification.model;
+
+import bk.notification.valid.SMSNotificationValidator;
 
 public class SMSNotificationModel implements NotificationModel {
     private String phoneNumberSender;
     private String phoneNumberReceiver;
     private String message;
+    private SMSNotificationValidator smsNotificationValidator = new SMSNotificationValidator();
 
     private SMSNotificationModel() {
     }
@@ -31,6 +34,14 @@ public class SMSNotificationModel implements NotificationModel {
 
     private void setMessage(String message) {
         this.message = message;
+    }
+
+    public SMSNotificationValidator getSmsNotificationValidator() {
+        return smsNotificationValidator;
+    }
+
+    public void setSmsNotificationValidator(SMSNotificationValidator smsNotificationValidator) {
+        this.smsNotificationValidator = smsNotificationValidator;
     }
 
     public static class SMSNotificationModelBuilder {

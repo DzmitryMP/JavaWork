@@ -1,4 +1,7 @@
-package bk.notification;
+package bk.notification.sender;
+
+import bk.notification.NotificationType;
+import bk.notification.model.TelegramNotificationModel;
 
 public class NotificationTelegramSender implements NotificationSender<TelegramNotificationModel> {
     @Override

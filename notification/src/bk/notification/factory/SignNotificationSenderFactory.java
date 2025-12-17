@@ -1,4 +1,8 @@
-package bk.notification;
+package bk.notification.factory;
+
+import bk.notification.sender.NotificationEMAILSender;
+import bk.notification.sender.NotificationSMSSender;
+import bk.notification.sender.NotificationSender;
 
 import java.util.List;
 
